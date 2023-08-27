@@ -1,14 +1,21 @@
-  Dies ist die README-Datei für mein tolles Repository, das ich mit Terraform erstellt habe.
-  Zum erstellen wird noch eine Terraform.tfvars Datei benötigt.
-  in der .tfvars Datei muss dann die github_token und github_owner Variablen eingetragen werden.
+# Mein Tolles Terraform-Repository
 
-  Beispiel:
-  github_token = "beispieltoken"
-  github_owner = "Satisfraction"
+## Dies ist die README-Datei für mein tolles Repository, das ich mit Terraform erstellt habe. 
 
-  Befehle zum ausführen von Terraform:
-  terraform init
-  terraform plan
-  terraform apply
+### Um das Repository zu erstellen, wird zusätzlich eine `Terraform.tfvars` Datei benötigt. 
+### In der `.tfvars` Datei müssen die Variablen `github_token` und `github_owner` eingetragen werden.
 
-  (darauf achten das man die github_token und github_owner Variablen eingetragen hat)
+**Beispiel:**
+```hcl
+github_token = "beispieltoken"
+github_owner = "Satisfraction"
+```
+
+### Befehle zum Ausführen von Terraform:
+```shell
+terraform init
+terraform plan
+terraform apply
+```
+
+**Bitte achte darauf, dass die github_token und github_owner Variablen in der .tfvars Datei korrekt eingetragen sind, bevor du die Terraform-Befehle ausführst.**
