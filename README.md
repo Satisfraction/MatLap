@@ -13,12 +13,18 @@ github_owner = "Satisfraction"
 
 ### Befehle zum Ausführen von Terraform:
 - **init:**
-`terraform init`
+```shell
+terraform init
+```
 
 - **plan:**
-`terraform plan`
+```shell
+terraform plan
+```
 
 - **apply:**
-`terraform apply`
+```shell
+terraform apply
+```
 
 **Bitte achte darauf, dass die github_token und github_owner Variablen in der .tfvars Datei korrekt eingetragen sind, bevor du die Terraform-Befehle ausführst.**
