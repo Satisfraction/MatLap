@@ -19,7 +19,7 @@ provider "github" {
 resource "github_repository" "example" {
   name        = "MatLap"
   description = "Mein tolles Repository erstellt mit Terraform."
-  visibility  = "private"
+  visibility  = "public"
 }
 
 locals {
