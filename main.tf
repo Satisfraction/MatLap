@@ -19,9 +19,10 @@ provider "github" {
 resource "github_repository" "example" {
   name        = "MatLap"
   description = "Mein tolles Repository erstellt mit Terraform."
-  visibility  = "private"
+  visibility  = "public"
 }
 
+# to add the local files of 'main.tf' & '.gitignore' to the REPO
 locals {
   main_tf_content = file("${path.module}/main.tf")
   gitignore_content = file("${path.module}/.gitignore")
@@ -43,20 +44,37 @@ resource "github_repository_file" "readme" {
   repository = github_repository.example.name
   file       = "README.md"
   content    = <<EOT
-  Dies ist die README-Datei für mein tolles Repository, das ich mit Terraform erstellt habe.
-  Zum erstellen wird noch eine Terraform.tfvars Datei benötigt.
-  in der .tfvars Datei muss dann die github_token und github_owner Variablen eingetragen werden.
+  # Mein Tolles Terraform-Repository
 
-  Beispiel:
+  ## Dies ist die README-Datei für mein tolles Repository, das ich mit Terraform erstellt habe. 
+  
+  ### Um das Repository zu erstellen, wird zusätzlich eine `Terraform.tfvars` Datei benötigt. 
+  
+  **In der `.tfvars` Datei müssen die Variablen `github_token` und `github_owner` eingetragen werden.**
+  
+  **Beispiel:**
+  ```hcl
   github_token = "beispieltoken"
   github_owner = "Satisfraction"
-
-  Befehle zum ausführen von Terraform:
+  ```
+  
+  ### Befehle zum Ausführen von Terraform:
+  - **init:**
+  ```shell
   terraform init
+  ```
+  
+  - **plan:**
+  ```shell
   terraform plan
+  ```
+  
+  - **apply:**
+  ```shell
   terraform apply
-
-  (darauf achten das man die github_token und github_owner Variablen eingetragen hat)
+  ```
+  
+  **Bitte achte darauf, dass die github_token und github_owner Variablen in der .tfvars Datei korrekt eingetragen sind, bevor du die Terraform-Befehle ausführst.**
   EOT
 }
 
