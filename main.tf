@@ -1,44 +1,54 @@
 terraform {
   required_version = ">= 0.14"
+  # Specify the required version of Terraform
   # Add any backend configuration here if needed
 }
 
 variable "github_token" {
   type = string
+  # Declare a variable for the GitHub token
 }
 
 variable "github_owner" {
   type = string
+  # Declare a variable for the GitHub owner
 }
 
 provider "github" {
   token = var.github_token
   owner = var.github_owner
+  # Configure the GitHub provider with the provided token and owner
 }
 
 resource "github_repository" "example" {
   name        = "MatLap"
   description = "Mein tolles Repository erstellt mit Terraform."
   visibility  = "public"
+  # Create a GitHub repository with the specified name, description, and visibility
 }
 
 locals {
   main_tf_content = file("${path.module}/main.tf")
   gitignore_content = file("${path.module}/.gitignore")
+  # Define local variables for the contents of the main.tf and .gitignore files
 }
 
 resource "github_repository_file" "main_tf" {
   repository = github_repository.example.name
   file       = "main.tf"
   content    = local.main_tf_content
+  # Create a file in the GitHub repository with the contents of the main.tf file
 }
 
 resource "github_repository_file" "gitignore" {
   repository = github_repository.example.name
   file       = ".gitignore"
   content = local.gitignore_content
+  # Create a file in the GitHub repository with the contents of the .gitignore file
 }
 
+# Create a file in the GitHub repository with the specified name, containing the README content
+# The README provides instructions for creating the repository and mentions the required Terraform.tfvars file
 resource "github_repository_file" "readme" {
   repository = github_repository.example.name
   file       = "README.md"
@@ -78,8 +88,16 @@ resource "github_repository_file" "readme" {
 }
 
 resource "github_repository_file" "license" {
+  # Define a resource block for creating a file in a GitHub repository.
+  # The resource type is "github_repository_file" and the name is "license".
+
+  # Specify the repository name where the file will be created.
   repository = github_repository.example.name
+
+  # Specify the file name as "LICENSE".
   file       = "LICENSE"
+
+  # Specify the content of the file using a heredoc syntax.
   content    = <<EOT
 MIT License
 
