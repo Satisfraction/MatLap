@@ -2,7 +2,7 @@
 
   ## Dies ist die README-Datei für mein tolles Repository, das ich mit Terraform erstellt habe. 
 
-  ### Um das Repository zu erstellen, wird zusätzlich eine `terraform.tfvars` Datei benötigt. 
+  ### Um das Repository zu erstellen, wird zusätzlich eine `Terraform.tfvars` Datei benötigt. 
 
   **In der `.tfvars` Datei müssen die Variablen `github_token` und `github_owner` eingetragen werden.**
 
